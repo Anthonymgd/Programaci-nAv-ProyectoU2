@@ -62,7 +62,5 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.token = window.sessionStorage.getItem('token');
-    console.log('token', this.token);
   }
 }

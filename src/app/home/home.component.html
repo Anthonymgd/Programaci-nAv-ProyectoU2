@@ -78,7 +78,7 @@
       <div class="border rounded-2 p-4" *ngIf="addTemplate">
         <label for="sel2">Animal:</label>
         <select>
-          <option *ngFor="let animal of animales" #newProjectName>
+          <option *ngFor="let animal of animales">
             <span style="font-size:14px;" class="form-control">{{
               animal
             }}</span>
@@ -101,9 +101,7 @@
           Cancelar
         </button>
         <button
-          class="btn btn-primary btn-sm"
-          (click)="save({ projectName: newProjectName, link: newLink.value })"
-        >
+          class="btn btn-primary btn-sm">
           Gurdar
         </button>
       </div>
@@ -120,7 +118,7 @@
         class="custom-control-label"
         for="customCheck"
         style="font-size:18px;"
-        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acepto los términos y
+        >Acepto los términos y
         condiciones</label
       >
     </div>

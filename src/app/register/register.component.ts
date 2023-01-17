@@ -11,6 +11,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -18,18 +19,22 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  user = {};
-  dataSource = 'firebase';
 
+  user = {};
 
   registerForm: FormGroup; // No provee una inicialización
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private servicio: FirebaseService) {
     this.buildForm();
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.servicio.verTodo(this.registerForm.value).subscribe(res=>{
+      console.log("Correcto")
+    },
+    (err) => console.log(err)
+    );
+
   }
 
   onSubmit() {

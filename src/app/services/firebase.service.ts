@@ -8,15 +8,15 @@ import { map } from 'rxjs/operators';
 export class FirebaseService {
   headers_object = new HttpHeaders({
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-With'
   });
 
-  httpOptions = {
-    headers: this.headers_object,
-  };
+  httpOptions = {headers: this.headers_object};
 
   constructor(private http: HttpClient) {}
 
-  guardarAdministrador(estudiante: any) {
-    return this.http.post('http://52.87.220.184:8080/api/addHeroe', {estudiante}, this.httpOptions);
+  verTodo(estudiante: any) {
+    return this.http.get('http://52.87.220.184:8080/heroes', this.httpOptions);
   }
 }
